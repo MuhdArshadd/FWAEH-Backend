@@ -11,7 +11,11 @@ app.use(cors()); // Allow requests from your React frontend
 app.use(express.json()); // Parse incoming JSON payloads
 app.use(morgan('dev')); 
 
+// --- Import Routes ---
+const authRoutes = require('./routes/authRoutes');
+
 // --- Routes ---
+app.use('/api/auth', authRoutes);
 app.get('/', (req, res) => {
   res.status(200).json({ status: 'API is running beautifully' });
 });
