@@ -13,9 +13,11 @@ app.use(morgan('dev'));
 
 // --- Import Routes ---
 const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 // --- Routes ---
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 app.get('/', (req, res) => {
   res.status(200).json({ status: 'API is running beautifully' });
 });
