@@ -14,16 +14,20 @@ app.use(morgan('dev'));
 // --- Import Routes ---
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 
 // --- Routes ---
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
-app.get('/', (req, res) => {
-  res.status(200).json({ status: 'API is running beautifully' });
-});
+app.use('/api/cart', cartRoutes);
+
 
 // --- Server Startup ---
 const PORT = process.env.PORT || 5000;
+
+app.get('/', (req, res) => {
+  res.status(200).json({ status: 'API is running beautifully' });
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
