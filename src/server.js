@@ -15,11 +15,13 @@ app.use(morgan('dev'));
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 // --- Routes ---
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/api/user', userRoutes);
 
 
 // --- Server Startup ---
